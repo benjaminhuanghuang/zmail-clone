@@ -3,11 +3,11 @@ import Navbar from "./Navbar";
 import AppSidebar from "./AppSidebar";
 import Cookies from "js-cookie";
 
-export default function MailPageLayout({
-  children,
-}: {
+interface MailPageLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function MailPageLayout({ children }: MailPageLayoutProps) {
   const defaultOpen = Cookies.get("sidebar_state") === "true";
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
