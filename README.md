@@ -30,13 +30,19 @@ Modify vite.config.ts
 
 ## Setup @
 
+Thi setup is need by Shadcn
+
 Modify vite.config.ts
 
 ```js
-
+resolve: {
+  alias: {
+    "@": resolve(__dirname, "./src"),
+  },
+},
 ```
 
-Modify tsconfig.json
+Modify tsconfig.json and tsconfig.app.json
 
 ```json
 {
@@ -52,5 +58,7 @@ Modify tsconfig.json
 ## Setup Shadcn
 
 ```sh
-npm install tailwindcss @tailwindcss/vite
+npx shadcn@latest init
+
+npx shadcn@latest add button label input
 ```
