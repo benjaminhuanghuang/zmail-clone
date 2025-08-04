@@ -2,7 +2,7 @@
 
 ```sh
 npm i -D vitest
-npm i -D @testing-library/react @testing-library/jest-dom
+npm i -D @testing-library/react @testing-library/jest-dom jsdom
 
 ```
 
