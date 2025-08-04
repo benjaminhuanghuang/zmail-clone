@@ -1,10 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import ThemeToggle from "@/components/ThemeToggle";
+import MailPage from "@/pages/MailPage";
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <ThemeToggle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MailPage />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
