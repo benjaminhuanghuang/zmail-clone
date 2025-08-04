@@ -1,15 +1,11 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import ThemeToggle from "@/components/ThemeToggle";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Button onClick={() => setCount((count) => count + 1)}>
-        Count is: {count}
-      </Button>
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ThemeToggle />
+    </ThemeProvider>
   );
 }
 
