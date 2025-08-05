@@ -166,7 +166,6 @@ const AppSidebar = () => {
       <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {systemLabels.map((item) => (
@@ -191,7 +190,7 @@ const AppSidebar = () => {
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
                 More
-                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>
@@ -233,7 +232,7 @@ const AppSidebar = () => {
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
                 Labels
-                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>

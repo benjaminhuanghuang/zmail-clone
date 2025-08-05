@@ -30,7 +30,7 @@ const { toggleSidebar } = useSidebar();
 </Button>;
 ```
 
-## Sub
+## Collapsible
 
 ```js
 <SidebarMenuSub>
@@ -45,4 +45,8 @@ const { toggleSidebar } = useSidebar();
     </SidebarMenuSubItem>
   ))}
 </SidebarMenuSub>
+
+
+<ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+
 ```
