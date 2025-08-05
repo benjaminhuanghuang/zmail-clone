@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import Navbar from "@/components/Navbar";
-import AppSidebar from "@/components/MailSidebar";
+import AppSidebar from "@/views/mail/components/MailSidebar";
 import Cookies from "js-cookie";
 
 export default function MailPageLayout() {

@@ -10,7 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import SearchInput from "./SearchInput";
+import SearchInput from "@/components/SearchInput";
 
 const Navbar = () => {
   const location = useLocation();
