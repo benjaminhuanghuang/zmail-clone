@@ -1,8 +1,8 @@
 import {
+  ArrowLeft,
   Mail,
   Inbox,
   Pencil,
-  SquarePen,
   SquareUser,
   Settings,
   Funnel,
@@ -19,51 +19,59 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Link, useNavigate } from "react-router-dom";
 
 const settings = [
   {
     title: "General",
-    url: "#",
+    id: "general",
     icon: Settings,
   },
   {
     title: "Inbox and messages",
-    url: "#",
+    id: "inbox",
     icon: Inbox,
   },
   {
     title: "Compose and reply",
-    url: "#",
+    id: "compose",
     icon: Pencil,
   },
   {
     title: "Vacation",
-    url: "#",
+    id: "vacation",
     icon: TentTree,
   },
   {
     title: "Contacts",
-    url: "#",
+    id: "contacts",
     icon: SquareUser,
   },
   {
     title: "Groups",
-    url: "#",
+    id: "groups",
     icon: Mail,
   },
   {
     title: "Filters",
-    url: "#",
+    id: "filters",
     icon: Funnel,
   },
 ];
 
 const SettingsSidebar = () => {
+  const navigate = useNavigate();
+
+  const onBackClick = () => {
+    navigate("/mail/home/INBOX");
+  };
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="py-4">
-        <div></div>
+        <Button variant="ghost" className="w-8" onClick={onBackClick}>
+          <ArrowLeft className="mr-2" />
+        </Button>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -73,7 +81,7 @@ const SettingsSidebar = () => {
               {settings.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <Link to={item.url}>
+                    <Link to={`/settings/${item.id}`}>
                       <item.icon />
                       <span>{item.title}</span>
                     </Link>

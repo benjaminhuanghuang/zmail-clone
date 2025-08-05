@@ -10,6 +10,11 @@ import ThreadDetail from "./views/mail/ThreadDetail";
 import SettingsLayout from "./layouts/SettingsLayout";
 import General from "./views/settings/General";
 import Inbox from "./views/settings/Inbox";
+import Compose from "./views/settings/Compose";
+import Vacation from "./views/settings/Vacation";
+import Groups from "./views/settings/Groups";
+import Filters from "./views/settings/Filters";
+import Contacts from "./views/settings/Contacts";
 // pages
 import NotFound from "./views/NotFound";
 import ErrorBoundary from "./layouts/ErrorBoundary";
@@ -94,6 +99,11 @@ const router = createBrowserRouter([
           },
           { path: "general", element: <General /> },
           { path: "inbox", element: <Inbox /> },
+          { path: "compose", element: <Compose /> },
+          { path: "vacation", element: <Vacation /> },
+          { path: "groups", element: <Groups /> },
+          { path: "filters", element: <Filters /> },
+          { path: "contacts", element: <Contacts /> },
         ],
       },
       {
