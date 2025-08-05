@@ -8,13 +8,16 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import SearchInput from "./SearchInput";
 
 const Navbar = () => {
   return (
     <nav className="p-4 flex items-center justify-between sticky top-0 bg-background z-10">
       {/* LEFT */}
-      <SidebarTrigger />
-
+      <div className="flex items-center gap-2">
+        <SidebarTrigger />
+        <SearchInput />
+      </div>
       {/* RIGHT */}
       <div className="flex items-center gap-2">
         <DropdownMenu>

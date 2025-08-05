@@ -1,11 +1,24 @@
 import {
+  Archive,
+  Bookmark,
+  ClipboardClock,
   Inbox,
   Calendar,
   Search,
-  Settings,
+  Globe,
+  MessagesSquare,
   User2,
   ChevronDown,
+  Mails,
   Tag,
+  Trash2,
+  Star,
+  SquarePen,
+  Lock,
+  OctagonAlert,
+  OctagonMinus,
+  CircleAlert,
+  Volume2,
 } from "lucide-react";
 import {
   Sidebar,
@@ -45,9 +58,9 @@ const systemLabels = [
     icon: Inbox,
   },
   {
-    title: "Started",
+    title: "Starred",
     url: "#",
-    icon: Calendar,
+    icon: Star,
   },
   {
     title: "Send",
@@ -57,17 +70,22 @@ const systemLabels = [
   {
     title: "Drafts",
     url: "#",
-    icon: Settings,
+    icon: SquarePen,
   },
   {
-    title: "important",
+    title: "Important",
     url: "#",
-    icon: Settings,
+    icon: Bookmark,
+  },
+  {
+    title: "Trash",
+    url: "#",
+    icon: Trash2,
   },
   {
     title: "Archive",
     url: "#",
-    icon: Settings,
+    icon: Archive,
   },
 ];
 
@@ -75,7 +93,7 @@ const systemLabelsMore = [
   {
     title: "All mail",
     url: "#",
-    icon: Inbox,
+    icon: Mails,
   },
   {
     title: "Categories",
@@ -85,17 +103,22 @@ const systemLabelsMore = [
   {
     title: "Spam",
     url: "#",
-    icon: Search,
+    icon: OctagonAlert,
   },
   {
     title: "Private",
     url: "#",
-    icon: Settings,
+    icon: Lock,
   },
   {
     title: "Blocked",
     url: "#",
-    icon: Settings,
+    icon: OctagonMinus,
+  },
+  {
+    title: "Scheduled",
+    url: "#",
+    icon: ClipboardClock,
   },
 ];
 
@@ -103,27 +126,27 @@ const categories = [
   {
     title: "Personal",
     url: "#",
-    icon: Inbox,
+    icon: User2,
   },
   {
     title: "Social",
     url: "#",
-    icon: Calendar,
+    icon: Globe,
   },
   {
     title: "Promotions",
     url: "#",
-    icon: Search,
+    icon: Volume2,
   },
   {
     title: "Updates",
     url: "#",
-    icon: Search,
+    icon: CircleAlert,
   },
   {
     title: "Forums",
     url: "#",
-    icon: Search,
+    icon: MessagesSquare,
   },
 ];
 
