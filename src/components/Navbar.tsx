@@ -1,17 +1,7 @@
-import { Link } from "react-router-dom";
-import { LogOut, Settings, User } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
+import { Settings } from "lucide-react";
 
 import { SidebarTrigger } from "./ui/sidebar";
-import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   return (
@@ -21,33 +11,9 @@ const Navbar = () => {
 
       {/* RIGHT */}
       <div className="flex items-center gap-4">
-        <Link to="/">Home</Link>
-        <ThemeToggle />
-        {/* USER MENU */}
-        <DropdownMenu>
-          <DropdownMenuTrigger>
-            <Avatar>
-              <AvatarImage src="https://avatars.githubusercontent.com/u/1486366" />
-              <AvatarFallback>BH</AvatarFallback>
-            </Avatar>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent sideOffset={10}>
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <User className="h-[1.2rem] w-[1.2rem] mr-2" />
-              Profile
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Settings className="h-[1.2rem] w-[1.2rem] mr-2" />
-              Settings
-            </DropdownMenuItem>
-            <DropdownMenuItem variant="destructive">
-              <LogOut className="h-[1.2rem] w-[1.2rem] mr-2" />
-              Logout
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Button variant="ghost" size="icon" className="size-8">
+          <Settings />
+        </Button>
       </div>
     </nav>
   );
