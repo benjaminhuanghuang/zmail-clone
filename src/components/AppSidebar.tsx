@@ -248,7 +248,7 @@ const AppSidebar = () => {
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
-        <SidebarSeparator />
+        <SidebarSeparator className="mx-0 w-full max-w-full" />
         {/* User labels */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
@@ -277,7 +277,6 @@ const AppSidebar = () => {
           </SidebarGroup>
         </Collapsible>
       </SidebarContent>
-
       <SidebarFooter></SidebarFooter>
     </Sidebar>
   );
