@@ -3,8 +3,8 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 // mail
 import MailPageLayout from "./layouts/MailPageLayout";
 import HomeLayout from "./layouts/HomeLayout";
-import MailLabelView from "./views/mail/MailLabelView";
-import MailSearchResultView from "./views/mail/MailSearchResultView";
+import MailLabelView from "./views/mail/ThreadLabelView";
+import MailSearchResultView from "./views/mail/ThreadSearchResultView";
 import ThreadDetail from "./views/mail/ThreadDetail";
 // settings
 import SettingsLayout from "./layouts/SettingsLayout";

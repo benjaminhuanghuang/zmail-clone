@@ -1,7 +1,7 @@
 import React from "react";
 
-const Label = () => {
+const ThreadLabelView = () => {
   return <div>Mail- Label View</div>;
 };
 
-export default Label;
+export default ThreadLabelView;
