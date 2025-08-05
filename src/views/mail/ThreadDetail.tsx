@@ -1,7 +1,7 @@
 import React from "react";
 
-const Thread = () => {
+const ThreadDetail = () => {
   return <div>Mail - Thread</div>;
 };
 
-export default Thread;
+export default ThreadDetail;

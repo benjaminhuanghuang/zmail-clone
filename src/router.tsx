@@ -3,14 +3,15 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 // mail
 import MailPageLayout from "./layouts/MailPageLayout";
 import HomeLayout from "./layouts/HomeLayout";
-import Search from "./pages/mail/Search";
-import Thread from "./pages/mail/Thread";
+import MailLabelView from "./views/mail/MailLabelView";
+import MailSearchResultView from "./views/mail/MailSearchResultView";
+import ThreadDetail from "./views/mail/ThreadDetail";
 // settings
 import SettingsLayout from "./layouts/SettingsLayout";
-import General from "./pages/settings/General";
-import Inbox from "./pages/settings/Inbox";
+import General from "./views/settings/General";
+import Inbox from "./views/settings/Inbox";
 // pages
-import NotFound from "./pages/NotFound";
+import NotFound from "./views/NotFound";
 
 /*
 / -> /mail
@@ -43,6 +44,18 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Navigate to="/mail/home/INBOX" replace />,
               },
+              {
+                id: "ThreadList",
+                path: ":labelId",
+                element: <MailLabelView />,
+                children: [
+                  {
+                    id: "ThreadDetail",
+                    path: ":threadId",
+                    element: <ThreadDetail />,
+                  },
+                ],
+              },
             ],
           },
           {
@@ -54,14 +67,14 @@ const router = createBrowserRouter([
                 element: <Navigate to="/mail/home/INBOX" replace />,
               },
               {
-                id: "ThreadList",
+                id: "ThreadSearchResultList",
                 path: ":query",
-                element: <Search />,
+                element: <MailSearchResultView />,
                 children: [
                   {
                     id: "SearchThreadList",
                     path: ":threadId",
-                    element: <Thread />,
+                    element: <ThreadDetail />,
                   },
                 ],
               },
