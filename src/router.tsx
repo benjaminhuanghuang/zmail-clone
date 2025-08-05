@@ -7,7 +7,7 @@ import MailLabelView from "./views/mail/ThreadLabelView";
 import MailSearchResultView from "./views/mail/ThreadSearchResultView";
 import ThreadDetail from "./views/mail/ThreadDetail";
 // settings
-import SettingsLayout from "./views/SettingsLayout";
+import SettingsLayout from "./views/settings/SettingsLayout";
 import General from "./views/settings/General";
 import Inbox from "./views/settings/Inbox";
 import Compose from "./views/settings/Compose";
