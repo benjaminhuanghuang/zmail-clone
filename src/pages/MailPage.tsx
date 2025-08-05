@@ -1,4 +1,4 @@
-import MailPageLayout from "@/components/MailPageLayout";
+import MailPageLayout from "@/layouts/MailPageLayout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   DropdownMenu,

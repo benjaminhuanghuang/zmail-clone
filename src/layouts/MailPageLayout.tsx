@@ -1,6 +1,6 @@
 import { SidebarProvider } from "@/components/ui/sidebar";
-import Navbar from "./Navbar";
-import AppSidebar from "./AppSidebar";
+import Navbar from "@/components/Navbar";
+import AppSidebar from "@/components/AppSidebar";
 import Cookies from "js-cookie";
 
 interface MailPageLayoutProps {
