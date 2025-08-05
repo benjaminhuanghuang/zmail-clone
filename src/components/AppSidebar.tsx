@@ -76,11 +76,18 @@ const AppSidebar = () => {
       <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild>
-              <Link to="/">
-                <span>Lama Dev</span>
-              </Link>
-            </SidebarMenuButton>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  <User2 /> Benjamin Huang <ChevronDown className="ml-auto" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem>Account</DropdownMenuItem>
+                <DropdownMenuItem>Setting</DropdownMenuItem>
+                <DropdownMenuItem>Sign out</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
@@ -200,24 +207,7 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
-                  <User2 /> John Doe <ChevronUp className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>Account</DropdownMenuItem>
-                <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem>Sign out</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
+      <SidebarFooter></SidebarFooter>
     </Sidebar>
   );
 };
