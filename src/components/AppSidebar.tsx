@@ -20,6 +20,7 @@ import {
   CircleAlert,
   Volume2,
   LogOut,
+  Pencil,
 } from "lucide-react";
 import {
   Sidebar,
@@ -56,6 +57,7 @@ import {
 } from "./ui/collapsible";
 import { Avatar } from "@radix-ui/react-avatar";
 import { AvatarFallback } from "./ui/avatar";
+import { Button } from "./ui/button";
 
 const systemLabels = [
   {
@@ -178,11 +180,16 @@ const AppSidebar = () => {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
-                  <User2 /> Benjamin Huang <ChevronDown className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
+              <div className="flex">
+                <DropdownMenuTrigger asChild>
+                  <SidebarMenuButton>
+                    <User2 /> Benjamin Huang <ChevronDown className="ml-auto" />
+                  </SidebarMenuButton>
+                </DropdownMenuTrigger>
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full h-8 w-8">
+                  <Pencil className="" />
+                </Button>
+              </div>
               <DropdownMenuContent align="start">
                 <DropdownMenuLabel className="text-xs font-light">
                   Accounts
