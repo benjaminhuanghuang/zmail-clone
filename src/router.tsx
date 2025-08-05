@@ -12,6 +12,7 @@ import General from "./views/settings/General";
 import Inbox from "./views/settings/Inbox";
 // pages
 import NotFound from "./views/NotFound";
+import ErrorBoundary from "./layouts/ErrorBoundary";
 
 /*
 / -> /mail
@@ -23,6 +24,7 @@ import NotFound from "./views/NotFound";
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,

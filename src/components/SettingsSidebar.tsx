@@ -1,10 +1,12 @@
 import {
-  Bookmark,
+  Mail,
   Inbox,
   Pencil,
   SquarePen,
-  Trash2,
+  SquareUser,
   Settings,
+  Funnel,
+  TentTree,
 } from "lucide-react";
 import {
   Sidebar,
@@ -38,17 +40,22 @@ const settings = [
   {
     title: "Vacation",
     url: "#",
-    icon: SquarePen,
+    icon: TentTree,
+  },
+  {
+    title: "Contacts",
+    url: "#",
+    icon: SquareUser,
   },
   {
     title: "Groups",
     url: "#",
-    icon: Bookmark,
+    icon: Mail,
   },
   {
     title: "Filters",
     url: "#",
-    icon: Trash2,
+    icon: Funnel,
   },
 ];
 

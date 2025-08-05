@@ -1,3 +1,5 @@
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { Button } from "./ui/button";
 import { Settings, List, ChevronDown } from "lucide-react";
 
@@ -11,6 +13,13 @@ import {
 import SearchInput from "./SearchInput";
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const goToSettings = () => {
+    navigate("/settings/general", { state: { from: location.pathname } });
+  };
+
   return (
     <nav className="p-4 flex items-center justify-between sticky top-0 bg-background z-10">
       {/* LEFT */}
@@ -39,7 +48,12 @@ const Navbar = () => {
             </DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button variant="ghost" size="icon" className="size-8">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-8"
+          onClick={goToSettings}
+        >
           <Settings />
         </Button>
       </div>
