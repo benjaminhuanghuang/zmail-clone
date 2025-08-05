@@ -19,6 +19,7 @@ import {
   OctagonMinus,
   CircleAlert,
   Volume2,
+  LogOut,
 } from "lucide-react";
 import {
   Sidebar,
@@ -41,8 +42,11 @@ import { Link } from "react-router-dom";
 
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import {
@@ -50,6 +54,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import { Avatar } from "@radix-ui/react-avatar";
+import { AvatarFallback } from "./ui/avatar";
 
 const systemLabels = [
   {
@@ -178,9 +184,20 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
-                <DropdownMenuItem>Account</DropdownMenuItem>
-                <DropdownMenuItem>Setting</DropdownMenuItem>
-                <DropdownMenuItem>Sign out</DropdownMenuItem>
+                <DropdownMenuLabel className="text-xs font-light">
+                  Accounts
+                </DropdownMenuLabel>
+                <DropdownMenuCheckboxItem checked>
+                  <Avatar>
+                    <AvatarFallback>BH</AvatarFallback>
+                  </Avatar>
+                  Benjamin.huang@zoom.us
+                </DropdownMenuCheckboxItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <LogOut />
+                  Sign out
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
@@ -208,7 +225,7 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
         {/* More */}
-        <Collapsible defaultOpen className="group/collapsible">
+        <Collapsible className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
