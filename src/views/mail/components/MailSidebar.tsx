@@ -38,7 +38,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarSeparator,
-} from "./ui/sidebar";
+} from "@/components/ui/sidebar";
 import { Link } from "react-router-dom";
 
 import {
@@ -49,15 +49,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "./ui/collapsible";
+} from "@/components/ui/collapsible";
 import { Avatar } from "@radix-ui/react-avatar";
-import { AvatarFallback } from "./ui/avatar";
-import { Button } from "./ui/button";
+import { AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 const systemLabels = [
   {

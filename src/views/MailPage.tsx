@@ -6,9 +6,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
-import NoMails from "@/components/NoMails";
+import NoMails from "@/views/mail/components/NoMails";
 import { Checkbox } from "@/components/ui/checkbox";
-import MailTable from "@/components/MailTable";
+import MailTable from "@/views/mail/components/MailTable";
 
 const MailPage = () => {
   return (

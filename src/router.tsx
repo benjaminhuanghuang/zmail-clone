@@ -1,13 +1,13 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 // mail
-import MailPageLayout from "./layouts/MailPageLayout";
-import HomeLayout from "./layouts/HomeLayout";
+import MailPageLayout from "./views/mail/MailPageLayout";
+import HomeLayout from "./views/mail/HomeLayout";
 import MailLabelView from "./views/mail/ThreadLabelView";
 import MailSearchResultView from "./views/mail/ThreadSearchResultView";
 import ThreadDetail from "./views/mail/ThreadDetail";
 // settings
-import SettingsLayout from "./layouts/SettingsLayout";
+import SettingsLayout from "./views/SettingsLayout";
 import General from "./views/settings/General";
 import Inbox from "./views/settings/Inbox";
 import Compose from "./views/settings/Compose";
@@ -17,7 +17,7 @@ import Filters from "./views/settings/Filters";
 import Contacts from "./views/settings/Contacts";
 // pages
 import NotFound from "./views/NotFound";
-import ErrorBoundary from "./layouts/ErrorBoundary";
+import ErrorBoundary from "./views/ErrorBoundary";
 
 /*
 / -> /mail
