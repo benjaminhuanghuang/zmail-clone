@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { Settings, User } from "lucide-react";
+import { Settings, List, ChevronDown } from "lucide-react";
 
 import { SidebarTrigger } from "./ui/sidebar";
 import {
@@ -16,11 +16,12 @@ const Navbar = () => {
       <SidebarTrigger />
 
       {/* RIGHT */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
+            <Button variant="ghost">
+              <List className="h-4 w-4" />
+              <ChevronDown className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
