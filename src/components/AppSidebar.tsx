@@ -1,21 +1,17 @@
 import {
-  Home,
   Inbox,
   Calendar,
   Search,
   Settings,
   User2,
-  ChevronUp,
-  Plus,
-  Projector,
   ChevronDown,
+  Tag,
 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
@@ -42,31 +38,107 @@ import {
   CollapsibleTrigger,
 } from "./ui/collapsible";
 
-const items = [
-  {
-    title: "Home",
-    url: "/",
-    icon: Home,
-  },
+const systemLabels = [
   {
     title: "Inbox",
     url: "#",
     icon: Inbox,
   },
   {
-    title: "Calendar",
+    title: "Started",
     url: "#",
     icon: Calendar,
   },
   {
-    title: "Search",
+    title: "Send",
     url: "#",
     icon: Search,
   },
   {
-    title: "Settings",
+    title: "Drafts",
     url: "#",
     icon: Settings,
+  },
+  {
+    title: "important",
+    url: "#",
+    icon: Settings,
+  },
+  {
+    title: "Archive",
+    url: "#",
+    icon: Settings,
+  },
+];
+
+const systemLabelsMore = [
+  {
+    title: "All mail",
+    url: "#",
+    icon: Inbox,
+  },
+  {
+    title: "Categories",
+    url: "#",
+    icon: Calendar,
+  },
+  {
+    title: "Spam",
+    url: "#",
+    icon: Search,
+  },
+  {
+    title: "Private",
+    url: "#",
+    icon: Settings,
+  },
+  {
+    title: "Blocked",
+    url: "#",
+    icon: Settings,
+  },
+];
+
+const categories = [
+  {
+    title: "Personal",
+    url: "#",
+    icon: Inbox,
+  },
+  {
+    title: "Social",
+    url: "#",
+    icon: Calendar,
+  },
+  {
+    title: "Promotions",
+    url: "#",
+    icon: Search,
+  },
+  {
+    title: "Updates",
+    url: "#",
+    icon: Search,
+  },
+  {
+    title: "Forums",
+    url: "#",
+    icon: Search,
+  },
+];
+
+const userLabels = [
+  {
+    title: "Development",
+    url: "#",
+  },
+  {
+    title: "Events",
+    url: "#",
+  },
+  {
+    title: "Study",
+    url: "#",
   },
 ];
 
@@ -97,7 +169,7 @@ const AppSidebar = () => {
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {systemLabels.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link to={item.url}>
@@ -113,100 +185,77 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Projects</SidebarGroupLabel>
-          <SidebarGroupAction>
-            <Plus /> <span className="sr-only">Add Project</span>
-          </SidebarGroupAction>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link to="/#">
-                    <Projector />
-                    See All Projects
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link to="/#">
-                    <Plus />
-                    Add Project
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        {/* COLLAPSABLE */}
+        {/* More */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Collapsable Group
+                More
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link to="/#">
-                        <Projector />
-                        See All Projects
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link to="/#">
-                        <Plus />
-                        Add Project
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+                  {systemLabelsMore.map((item) => (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton asChild>
+                        <Link to={item.url}>
+                          <item.icon />
+                          <span>{item.title}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                      {item.title === "Categories" && (
+                        <SidebarMenuSub>
+                          {categories.map((item) => (
+                            <SidebarMenuSubItem key={item.title}>
+                              <SidebarMenuSubButton asChild>
+                                <Link to={item.url}>
+                                  <item.icon />
+                                  <span>{item.title}</span>
+                                </Link>
+                              </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                          ))}
+                        </SidebarMenuSub>
+                      )}
+                    </SidebarMenuItem>
+                  ))}
                 </SidebarMenu>
               </SidebarGroupContent>
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
-        {/* NESTED */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link to="/#">
-                    <Projector />
-                    See All Projects
-                  </Link>
-                </SidebarMenuButton>
-                <SidebarMenuSub>
-                  <SidebarMenuSubItem>
-                    <SidebarMenuSubButton asChild>
-                      <Link to="/#">
-                        <Plus />
-                        Add Project
-                      </Link>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
-                  <SidebarMenuSubItem>
-                    <SidebarMenuSubButton asChild>
-                      <Link to="/#">
-                        <Plus />
-                        Add Category
-                      </Link>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
-                </SidebarMenuSub>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <SidebarSeparator />
+        {/* User labels */}
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Labels
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {userLabels.map((item) => (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton asChild>
+                        <Link to={item.url}>
+                          <Tag />
+                          <span>{item.title}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
       </SidebarContent>
+
       <SidebarFooter></SidebarFooter>
     </Sidebar>
   );

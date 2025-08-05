@@ -29,3 +29,20 @@ const { toggleSidebar } = useSidebar();
   Custom Button
 </Button>;
 ```
+
+## Sub
+
+```js
+<SidebarMenuSub>
+  {categories.map((item) => (
+    <SidebarMenuSubItem key={item.title}>
+      <SidebarMenuSubButton asChild>
+        <Link to={item.url}>
+          <item.icon />
+          <span>{item.title}</span>
+        </Link>
+      </SidebarMenuSubButton>
+    </SidebarMenuSubItem>
+  ))}
+</SidebarMenuSub>
+```
