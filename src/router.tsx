@@ -2,6 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 // mail
 import MailPageLayout from "./layouts/MailPageLayout";
+import HomeLayout from "./layouts/HomeLayout";
+import Search from "./pages/mail/Search";
+import Thread from "./pages/mail/Thread";
 // settings
 import SettingsLayout from "./layouts/SettingsLayout";
 import General from "./pages/settings/General";
@@ -9,14 +12,29 @@ import Inbox from "./pages/settings/Inbox";
 // pages
 import NotFound from "./pages/NotFound";
 
+/*
+/ -> /mail
+/mail -> /mail/home
+/mail/home -> /mail/home/INBOX
+/mail/search -> /mail/home/INBOX
+
+*/
 const router = createBrowserRouter([
   {
     path: "/",
     children: [
       {
+        index: true,
+        element: <Navigate to="/mail" replace />,
+      },
+      {
         path: "mail",
         element: <MailPageLayout />,
         children: [
+          {
+            index: true,
+            element: <Navigate to="/mail/home" replace />,
+          },
           {
             path: "home",
             element: <HomeLayout />,

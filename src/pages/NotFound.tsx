@@ -5,7 +5,7 @@ export default function NotFound() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full gap-y-4 -mt-24">
+    <div className="flex flex-col items-center justify-center w-full h-full gap-y-4 py-20">
       <img src="/mail-not-found.svg" alt="Not Found" />
       <div className="text-center">
         <h1 className="font-semibold text-xl">404</h1>
