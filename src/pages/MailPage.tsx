@@ -1,13 +1,26 @@
 import MailPageLayout from "@/components/MailPageLayout";
-import { Mail } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import NoMails from "@/components/NoMails";
 
 const MailPage = () => {
   return (
     <MailPageLayout>
-      <div className="flex items-center justify-center h-full">
-        <Mail className="w-12 h-12 text-gray-500" />
-        <h1 className="ml-2 text-xl font-semibold">Welcome to the Mail Page</h1>
-      </div>
+      <Tabs defaultValue="primary">
+        <TabsList>
+          <TabsTrigger value="primary">Primary</TabsTrigger>
+          <TabsTrigger value="social">Social</TabsTrigger>
+          <TabsTrigger value="personal">Personal</TabsTrigger>
+        </TabsList>
+        <TabsContent value="primary">
+          <NoMails />
+        </TabsContent>
+        <TabsContent value="social">
+          <NoMails />
+        </TabsContent>
+        <TabsContent value="personal">
+          <NoMails />
+        </TabsContent>
+      </Tabs>
     </MailPageLayout>
   );
 };
