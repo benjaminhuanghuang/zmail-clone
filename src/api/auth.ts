@@ -32,7 +32,21 @@ export function getEak() {
   return GET<EakResponse>(URLS.getEak.name);
 }
 
+let redirecting = false;
 export async function redirectToSignIn() {
+  /**
+   * if there exist more than once call to window.location.href at same time
+   * window.location.href = aaa
+   * window.location.href = bbb
+   * window.location.href = ccc
+   * browser will cancel aaa and bbb, redirect to ccc. but in fact, we need redirect to aaa.
+   * so we add a flag `redirecting`, if redirecting was true, we ignore other redirect.
+   */
+  if (redirecting) {
+    return;
+  }
+
+  redirecting = true;
   await cleanLocalData();
   window.location.href = getSignInURL();
 }

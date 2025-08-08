@@ -6,6 +6,12 @@ https://zoom.us/web/sso/login?en=signin&continue=https%3A%2F%2Fzmail.zoom.us%2Fm
 
 [Zoom Access Token](https://zoomvideo.atlassian.net/wiki/spaces/SDKPlatform/pages/2359099527/ZAK+Token)
 
+## Auth Setup
+
+https://zoom.us/signin does not recognize http://localhost:5173
+
+Have to use W2 map a known url like "zmail.zoom.us" to http://localhost:5173
+
 - NAK (Network Authentication Key):
   Purpose: Web session authentication
   Expiration: 1 hour
