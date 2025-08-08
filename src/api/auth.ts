@@ -7,24 +7,23 @@ let ZMAIL_TOKEN: string | null = null;
 const UID_KEY = "QS_UID";
 const STY_KEY = "QS_STY";
 
-export function initToken() {
-  initZmailToken();
+export async function initToken() {
+  await initZmailToken();
 }
 
-export function initZmailToken() {
-  return getEak().then((eakResult) => {
-    const [eakError, eakData] = eakResult;
+export async function initZmailToken() {
+  const eakResult = await getEak();
+  const [eakError, eakData] = eakResult;
 
-    if (eakError) {
+  if (eakError) {
+    redirectToSignIn();
+  } else {
+    if (eakData.code || !eakData.result) {
       redirectToSignIn();
     } else {
-      if (eakData.code || !eakData.result) {
-        redirectToSignIn();
-      } else {
-        ZMAIL_TOKEN = eakData.result;
-      }
+      ZMAIL_TOKEN = eakData.result;
     }
-  });
+  }
 }
 
 export type EakResponse = { code: number; msg?: string; result?: string };
