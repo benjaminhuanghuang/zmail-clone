@@ -1,13 +1,13 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 // mail
-import MailPageLayout from "./views/mail/MailPageLayout";
-import HomeLayout from "./views/mail/HomeLayout";
+import MailPageLayout from "./layouts/MailPageLayout";
+import HomeLayout from "./layouts/HomeLayout";
 import MailLabelView from "./views/mail/ThreadLabelView";
 import MailSearchResultView from "./views/mail/ThreadSearchResultView";
 import ThreadDetail from "./views/mail/ThreadDetail";
 // settings
-import SettingsLayout from "./views/settings/SettingsLayout";
+import SettingsLayout from "./layouts/SettingsLayout";
 import General from "./views/settings/General";
 import Inbox from "./views/settings/Inbox";
 import Compose from "./views/settings/Compose";
@@ -30,6 +30,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <ErrorBoundary />,
+    loader: rootLoader,
     children: [
       {
         index: true,
@@ -114,4 +115,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+async function rootLoader() {
+  // This can be used to fetch initial data or perform authentication checks
+  return null;
+}
 export default router;

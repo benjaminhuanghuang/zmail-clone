@@ -35,3 +35,7 @@ npm install react-router-dom
 ├── /redirect (DirectToClient)
 └── /sync (SE)
 ```
+
+## Route with Auth
+
+Redirect from Route Loader (React Router v6.4+)
