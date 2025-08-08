@@ -1,9 +1,7 @@
-import { commonUtils, stringUtils } from "@zmail_web/utils";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+import { generateRandomString } from "@/utils/stringUtils";
 import { Err, Ok } from ".";
-import {Ax} from "axios";
-
-const { assert } = commonUtils;
-const { generateRandomString } = stringUtils;
 
 export function composeMixedBody(mixedBodyList: MixedBodyList) {
   const boundary = generateBoundaryId();
@@ -102,20 +100,8 @@ export function parseBoundary(contentTypeString: string): {
   contentType: string;
   boundary: string | null;
 } {
-  assert(
-    contentTypeString.indexOf(";") > 0,
-    `failed to parseBoundary, contentTypeString doesn't contain a ; contentTypeString:${contentTypeString}`
-  );
   const parts = contentTypeString.split(";");
-  assert(
-    parts.length === 2,
-    `failed to parseBoundary, multi ; contentTypeString:${contentTypeString}`
-  );
   const boundary = parts[1]?.split("=")[1]!;
-  assert(
-    boundary,
-    `failed to parseBoundary missing boundary ${contentTypeString}`
-  );
   return {
     contentType: parts[0]!,
     boundary,
@@ -230,10 +216,6 @@ function parseMixedHeader(headerLines: string[]) {
           statusCodeRegex.exec(headerLine);
         if (matchResult && matchResult[1]) {
           httpCode = parseInt(matchResult[1]);
-        } else {
-          Log.warn(
-            `no found http status code in http body, first headerLine: ${headerLine}`
-          );
         }
       } else {
         return parseKeyValue(headerLine);
@@ -255,10 +237,10 @@ function parseMixedHeader(headerLines: string[]) {
 
 function parseMixedBody(bodyLines: string[]) {
   let jsonBody: any;
-  let rawBody = bodyLines.join("");
+  const rawBody = bodyLines.join("");
   try {
     jsonBody = JSON.parse(rawBody);
-  } catch (e) {
+  } catch {
     console.debug(`raw body is not a json ${rawBody}`);
   }
 

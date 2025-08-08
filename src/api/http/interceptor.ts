@@ -6,30 +6,26 @@ import {
   getAPIInfo,
   isNeedAuth,
   isWithCredentials,
-  isWebAPI,
   isWebTokenAPI,
   isZmailAPI,
 } from "../apiinfo";
-import { getHTTPEnv, isZmailTokenReady, redirectToSignIn } from "../auth";
+import {
+  getHTTPEnv,
+  isZmailTokenReady,
+  redirectToSignIn,
+  initToken,
+} from "../auth";
 
 /*
   Set config.headers["Authorization"] and config.withCredentials
  */
 export const configureHeader = (config: InternalAxiosRequestConfig) => {
   const apiName = config.url as API_NAME;
-  const { ZMAIL_TOKEN, WEB_TOKEN } = getHTTPEnv();
+  const { ZMAIL_TOKEN } = getHTTPEnv();
   if (apiName) {
     const needAuth = isNeedAuth(apiName);
     if (needAuth) {
-      if (isWebAPI(apiName)) {
-        if (WEB_TOKEN) {
-          config.headers["Authorization"] = WEB_TOKEN.startsWith("Bearer")
-            ? WEB_TOKEN
-            : `Bearer ${WEB_TOKEN}`;
-        } else {
-          throw new Error(`nak is required for API (${apiName})`);
-        }
-      } else if (isZmailAPI(apiName)) {
+      if (isZmailAPI(apiName)) {
         if (ZMAIL_TOKEN) {
           config.headers["Authorization"] = ZMAIL_TOKEN.startsWith("Bearer")
             ? ZMAIL_TOKEN
@@ -104,7 +100,7 @@ export const configureURL = (config: InternalAxiosRequestConfig) => {
 export const configureToken = async (config: InternalAxiosRequestConfig) => {
   const apiName = config.url as API_NAME;
   if (!isWebTokenAPI(apiName) && !isZmailTokenReady()) {
-    await API.initAPI();
+    await initToken();
   }
   return config;
 };

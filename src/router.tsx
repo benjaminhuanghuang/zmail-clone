@@ -18,6 +18,7 @@ import Contacts from "./views/settings/Contacts";
 // pages
 import NotFound from "./views/NotFound";
 import ErrorBoundary from "./views/ErrorBoundary";
+import { initToken } from "./api/auth";
 
 /*
 / -> /mail
@@ -116,7 +117,6 @@ const router = createBrowserRouter([
 ]);
 
 async function rootLoader() {
-  // This can be used to fetch initial data or perform authentication checks
-  return null;
+  await initToken();
 }
 export default router;
