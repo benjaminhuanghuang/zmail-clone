@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { type AxiosRequestConfig, type Method } from "axios";
 import {
   composeMixedBody,

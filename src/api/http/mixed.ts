@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { generateRandomString } from "@/utils/stringUtils";
 import { Err, Ok } from ".";
+import type { AxiosResponse } from "axios";
 
 export function composeMixedBody(mixedBodyList: MixedBodyList) {
   const boundary = generateBoundaryId();
@@ -47,6 +48,7 @@ export function generateGUID() {
 
 export function handleMixedResponse(
   response: AxiosResponse,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   resolve: Function
 ) {
   const headers = response.headers;

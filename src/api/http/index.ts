@@ -1,7 +1,7 @@
 import axios, { type InternalAxiosRequestConfig } from "axios";
 import { configureHeader, configureURL, configureToken } from "./interceptor";
 import { getErrorHandler, redirectToSignIn } from "../auth";
-import { isWebTokenAPI } from "../apiinfo";
+import { isWebTokenAPI } from "../apiInfo";
 import { initToken } from "../auth";
 
 axios.defaults.withCredentials = true;

@@ -1,5 +1,5 @@
 import type { AxiosResponse } from "axios";
-import URLS from "./apiinfo";
+import URLS from "./apiInfo";
 import { GET, POST } from "./http";
 
 let ZMAIL_TOKEN: string | null = null;
@@ -32,7 +32,8 @@ export function getEak() {
   return GET<EakResponse>(URLS.getEak.name);
 }
 
-export function redirectToSignIn() {
+export async function redirectToSignIn() {
+  await cleanLocalData();
   window.location.href = getSignInURL();
 }
 

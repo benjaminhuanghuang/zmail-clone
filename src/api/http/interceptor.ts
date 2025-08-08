@@ -8,7 +8,7 @@ import {
   isWithCredentials,
   isWebTokenAPI,
   isZmailAPI,
-} from "../apiinfo";
+} from "../apiInfo";
 import {
   getHTTPEnv,
   isZmailTokenReady,
@@ -51,7 +51,6 @@ export const configureHeader = (config: InternalAxiosRequestConfig) => {
 export const configureURL = (config: InternalAxiosRequestConfig) => {
   const apiName = config.url as API_NAME;
   const isRetryRequest = apiName.startsWith("http");
-  const { WEB_BASE_URL, ZMAIL_BASE_URL, SCHEDULER_DOMAIN } = getHTTPEnv();
   if (!apiName) {
     throw new Error(`Failed to configureURL, request URL is missing`);
   }
@@ -78,11 +77,11 @@ export const configureURL = (config: InternalAxiosRequestConfig) => {
 
   if (apiItem?.server === "ZMAIL") {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
-    config.url = `${ZMAIL_BASE_URL}${config.url}`;
+    config.url = `${import.meta.env.VITE_API_HOST}${config.url}`;
   } else if (apiItem?.server === "WEB") {
-    config.url = `${WEB_BASE_URL}${config.url}`;
+    config.url = `${import.meta.env.VITE_ZOOM_DOMAIN}${config.url}`;
   } else if (apiItem?.server === "SCHEDULER") {
-    config.url = `${SCHEDULER_DOMAIN}${config.url}`;
+    config.url = `${import.meta.env.VITE_SCHEDULER_DOMAIN}${config.url}`;
   } else if (!isRetryRequest) {
     throw new Error(
       `Failed to configureURL, not support server type ${apiItem.server}`
