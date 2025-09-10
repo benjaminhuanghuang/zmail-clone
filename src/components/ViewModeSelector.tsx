@@ -16,6 +16,7 @@ import { useAppSelector } from "@/store";
 import type { ViewMode } from "@/store/features/viewMode/types";
 
 const ViewModeSelector = () => {
+  // useAppSelector can give correct type inference
   const viewMode = useAppSelector((state) => state.viewMode.mode);
 
   const icon = useMemo(() => {

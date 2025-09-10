@@ -4,6 +4,7 @@ import type { ViewMode } from "./types";
 interface ViewModeState {
   mode: ViewMode;
 }
+
 const initialState: ViewModeState = { mode: "default" };
 
 const viewModeSlice = createSlice({
@@ -21,5 +22,8 @@ const viewModeSlice = createSlice({
 
 // export actions
 export const { setViewMode } = viewModeSlice.actions;
+
+// export selectors will lost type inference
+export const { viewMode } = viewModeSlice.selectors;
 
 export default viewModeSlice.reducer;
