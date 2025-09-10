@@ -18,7 +18,7 @@ import Contacts from "./views/settings/Contacts";
 // pages
 import NotFound from "./views/NotFound";
 import ErrorBoundary from "./views/ErrorBoundary";
-import { initToken } from "./api/auth";
+// import { initToken } from "./api/auth";
 
 /*
 / -> /mail

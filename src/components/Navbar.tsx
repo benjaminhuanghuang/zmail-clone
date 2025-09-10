@@ -1,16 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { Button } from "./ui/button";
-import { Settings, List, ChevronDown } from "lucide-react";
+import { Settings } from "lucide-react";
 
 import { SidebarTrigger } from "./ui/sidebar";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import SearchInput from "@/components/SearchInput";
+import ViewModeSelector from "./ViewModeSelector";
 
 const Navbar = () => {
   const location = useLocation();
@@ -29,25 +25,7 @@ const Navbar = () => {
       </div>
       {/* RIGHT */}
       <div className="flex items-center gap-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost">
-              <List className="h-4 w-4" />
-              <ChevronDown className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuCheckboxItem checked>
-              List view
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem>
-              Vertical split view
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem>
-              Horizontal split view
-            </DropdownMenuCheckboxItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <ViewModeSelector />
         <Button
           variant="ghost"
           size="icon"

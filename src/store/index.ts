@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 // Import reducers
-import counterReducer from "./features/counter/counterSlice";
+import viewModeReducer from "./features/viewMode/viewModeSlice";
 import authReducer from "./features/auth/authSlice";
+import { useSelector, type TypedUseSelectorHook } from "react-redux";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    viewMode: viewModeReducer,
     auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -16,3 +17,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
