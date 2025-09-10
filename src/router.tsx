@@ -31,6 +31,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <ErrorBoundary />,
+    // A loader is a function that fetches or prepares data for a route before the component mounts.
     loader: rootLoader,
     children: [
       {
