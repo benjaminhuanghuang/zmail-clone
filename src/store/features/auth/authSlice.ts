@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { loginUser } from "./authThunks";
 
 interface AuthState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user: any | null;
   status: "idle" | "loading" | "succeeded" | "failed";
 }

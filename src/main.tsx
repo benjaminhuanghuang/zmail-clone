@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 // Redux
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store } from "./store/index.ts";
 // Tanstack Query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
