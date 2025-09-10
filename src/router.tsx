@@ -117,6 +117,7 @@ const router = createBrowserRouter([
 ]);
 
 async function rootLoader() {
-  await initToken();
+  // Start the login
+  //  await initToken();
 }
 export default router;

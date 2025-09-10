@@ -6,6 +6,15 @@ https://zoom.us/web/sso/login?en=signin&continue=https%3A%2F%2Fzmail.zoom.us%2Fm
 
 [Zoom Access Token](https://zoomvideo.atlassian.net/wiki/spaces/SDKPlatform/pages/2359099527/ZAK+Token)
 
+## Entry
+
+```js
+async function rootLoader() {
+  // Start the login
+  //  await initToken();
+}
+```
+
 ## Auth Setup
 
 https://zoom.us/signin does not recognize http://localhost:5173

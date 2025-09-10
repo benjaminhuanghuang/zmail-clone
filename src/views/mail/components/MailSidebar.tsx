@@ -38,6 +38,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarSeparator,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { Link } from "react-router-dom";
 
@@ -174,6 +175,8 @@ const userLabels = [
 ];
 
 const AppSidebar = () => {
+  const { open } = useSidebar();
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="py-4">
@@ -181,11 +184,14 @@ const AppSidebar = () => {
           <SidebarMenuItem>
             <DropdownMenu>
               <div className="flex">
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton>
-                    <User2 /> Benjamin Huang <ChevronDown className="ml-auto" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
+                {open && (
+                  <DropdownMenuTrigger asChild>
+                    <SidebarMenuButton>
+                      <User2 /> Benjamin Huang{" "}
+                      <ChevronDown className="ml-auto" />
+                    </SidebarMenuButton>
+                  </DropdownMenuTrigger>
+                )}
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full h-8 w-8">
                   <Pencil className="" />
                 </Button>
