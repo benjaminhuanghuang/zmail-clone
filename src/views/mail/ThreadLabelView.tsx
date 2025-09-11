@@ -8,7 +8,7 @@ import {
 import { ChevronDown } from "lucide-react";
 import NoMails from "@/views/mail/components/NoMails";
 import { Checkbox } from "@/components/ui/checkbox";
-import MailTable from "@/views/mail/components/MailTable";
+import MailList from "./MailList";
 
 const MailPage = () => {
   return (
@@ -36,7 +36,7 @@ const MailPage = () => {
         </TabsList>
       </div>
       <TabsContent value="primary">
-        <MailTable />
+        <MailList />
       </TabsContent>
       <TabsContent value="social">
         <NoMails />

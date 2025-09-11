@@ -1,5 +1,22 @@
 # Mail list
 
+## Zmail
+
+```js
+// mail:labelId view
+const Label = lazyLoad(() => import("@/views/Mail/Home/Label"));
+```
+
+apps/web/src/views/Mail/Home/Label/index.tsx
+
+```js
+<MailList />
+```
+
+apps/web/src/components/Mail/MailList/index.tsx
+
+## Implementation
+
 ```sh
 
 npx shadcn@latest add tabs  checkbox scroll table
