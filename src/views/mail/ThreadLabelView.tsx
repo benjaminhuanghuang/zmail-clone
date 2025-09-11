@@ -12,7 +12,7 @@ import MailList from "./MailList";
 
 const MailPage = () => {
   return (
-    <Tabs defaultValue="primary">
+    <Tabs defaultValue="primary" className="h-full">
       <div className="flex items-center mb-2">
         {/* Compact Dropdown */}
         <Checkbox />

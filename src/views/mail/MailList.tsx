@@ -37,7 +37,7 @@ const MailList = () => {
   }, [viewMode]);
 
   return (
-    <div className="h-screen">
+    <div className="h-full">
       <ResizablePanelGroup direction={direction}>
         <ResizablePanel>{showMailList && <MailBox />}</ResizablePanel>
         <ResizableHandle className={`${!showDetail ? "hidden" : ""}`} />

@@ -9,9 +9,9 @@ export default function MailPageLayout() {
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <AppSidebar />
-      <main className="w-full">
+      <main className="w-full h-screen">
         <Navbar />
-        <div className="px-4">
+        <div className="px-4 h-full">
           <Outlet />
         </div>
       </main>
