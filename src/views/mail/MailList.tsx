@@ -1,6 +1,7 @@
 /*
-Render the list of emails in listview, 
+Render the list of emails in list view, vertical split view, and horizontal split view.
 
+The mail detail view is rendered as the outlet of react-router-dom.
 */
 
 import { useMemo } from "react";
