@@ -19,8 +19,12 @@ import MailBox from "./components/MailBox";
 const MailList = () => {
   const viewMode = useAppSelector((state) => state.viewMode.mode);
   const outlet = useOutlet();
-
   const showMailList = useMemo(() => !outlet, [outlet]);
+
+  const showDetail = useMemo(
+    () => viewMode !== "default" || outlet,
+    [viewMode, outlet]
+  );
   const direction = useMemo(() => {
     switch (viewMode) {
       case "vertical_split":
@@ -33,13 +37,26 @@ const MailList = () => {
   }, [viewMode]);
 
   return (
-    <>
+    <div className="h-screen">
       <ResizablePanelGroup direction={direction}>
         <ResizablePanel>{showMailList && <MailBox />}</ResizablePanel>
-        <ResizableHandle />
-        <ResizablePanel>{outlet}</ResizablePanel>
+        <ResizableHandle className={`${!showDetail ? "hidden" : ""}`} />
+        <ResizablePanel className={`${!showDetail ? "hidden" : ""}`}>
+          {outlet ||
+            (showDetail && (
+              <div className="flex flex-col w-full h-full items-center justify-center">
+                <img
+                  src="/mailbox-graphic.svg"
+                  width={128}
+                  height={170}
+                  alt="Mailbox"
+                />
+                <div className="pt-2 text-center text-sm">No mail selected</div>
+              </div>
+            ))}
+        </ResizablePanel>
       </ResizablePanelGroup>
-    </>
+    </div>
   );
 };
 
